@@ -5,7 +5,6 @@ from ctypes import (
     c_ubyte,
     byref,
 )
-import os
 from typing import Tuple
 from tusbadmh.error import Error
 from tusbadmh.tusbadmh import TUSBADMH
@@ -27,19 +26,8 @@ from tusbadmh.result_class import (
 
 
 class TUSBADMHImpl(TUSBADMH):
-    def __init__(self, archtecture: str):
-        if archtecture == "x86":
-            driver_path = os.path.join(
-                os.path.dirname(__file__), "./DRIVER/x86/TUSBADMH.dll"
-            )
-            self.dll = cdll.LoadLibrary(driver_path)
-        elif archtecture == "amd64":
-            driver_path = os.path.join(
-                os.path.dirname(__file__), "./DRIVER/amd64/TUSBADMH.dll"
-            )
-            self.dll = cdll.LoadLibrary(driver_path)
-        else:
-            raise ValueError("archtecture must be x86 or amd64")
+    def __init__(self, dll_path: str):
+        self.dll = cdll.LoadLibrary(dll_path)
 
     def device_open(self, id: int) -> Error:
         err_code = self.dll.Tusbadmh_Device_Open(c_short(id))
