@@ -23,9 +23,7 @@ from tusbadmh.result_class import (
 
 
 def __get_mock_data_from_csv() -> list[int]:
-    csv_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), "./mock_data.csv"
-    )
+    csv_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "mock_data.csv")
     f = open(csv_path, "r")
     reader = csv.reader(f)
     data = [e for e in reader]
