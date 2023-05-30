@@ -5,8 +5,9 @@
 ## セットアップ
 
 1. タートル工業の[ソフトウェアダウンロード](https://www.turtle-ind.co.jp/download/win7_8_10/)のサイトから TUSB-0216ADMH 用のソフトをダウンロード
-2. `DRIVER`ディレクトリをプロジェクトのディレクトリに配置
-3. `pip install git+https://github.com/Kohei-Asai/tusbadmh`を実行する
+2. `DRIVER/install.exe`を実行してドライバをインストール(Windows のみ可能)
+3. `DRIVER`ディレクトリをプロジェクトのディレクトリに配置
+4. `pip install git+https://github.com/Kohei-Asai/tusbadmh`を実行する
    - PyPI には登録していないです
 
 ## 使い方
